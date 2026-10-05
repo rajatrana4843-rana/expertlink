@@ -1,0 +1,461 @@
+/* =====================================================
+   PERFECT SOLUTIONS HEADER
+===================================================== */
+
+.site-header {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 90px;
+
+    z-index: 9999;
+
+    background: white;
+
+}
+
+
+/* =====================================================
+   HEADER INNER
+===================================================== */
+
+.header-inner {
+
+    width: 100%;
+
+    max-width: 1420px;
+
+    height: 95px;
+
+    margin: 0 auto;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+
+}
+
+
+.logo img {
+
+    width: 200px;
+
+    height: auto;
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.main-navigation {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 50px;
+
+}
+
+
+/* =====================================================
+   NAV LINKS
+===================================================== */
+
+.main-navigation .nav-link {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    height: 100%;
+
+    color: #000;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    letter-spacing: 0;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+
+}
+
+
+/* =====================================================
+   NAV HOVER
+===================================================== */
+
+.main-navigation .nav-link:hover {
+
+    color: #048E93;
+
+}
+
+
+/* =====================================================
+   ACTIVE NAV
+===================================================== */
+
+.main-navigation .nav-link.active {
+
+    color: #048E93;
+
+}
+
+
+/* =====================================================
+   ENQUIRY NOW BUTTON
+===================================================== */
+
+.enquiry-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 43px;
+
+    padding: 0 25px;
+
+    margin-left: 8px;
+
+    background: #20c8c8;
+
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    border: 1px solid #20c8c8;
+
+    border-radius: 2px;
+
+    box-sizing: border-box;
+
+    transition: all 0.3s ease;
+
+}
+
+
+/* =====================================================
+   ENQUIRY HOVER
+===================================================== */
+
+.enquiry-button:hover {
+
+    background: #022456;
+
+    color: #ffffff;
+
+    border-color: #ffffff;
+
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.mobile-menu-button {
+
+    display: none;
+
+    width: 40px;
+
+    height: 40px;
+
+    padding: 8px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =====================================================
+   MOBILE MENU LINES
+===================================================== */
+
+.mobile-menu-button span {
+
+    display: block;
+
+    width: 22px;
+
+    height: 1px;
+
+    margin: 5px 0;
+
+    background: #ffffff;
+
+    transition: all 0.3s ease;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .header-inner {
+
+        padding: 0 25px;
+
+    }
+
+
+    .main-navigation {
+
+        gap: 18px;
+
+    }
+
+
+    .main-navigation .nav-link {
+
+        font-size: 10px;
+
+    }
+
+
+    .enquiry-button {
+
+        padding: 0 16px;
+
+        font-size: 10px;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .site-header {
+
+        height: 70px;
+
+    }
+
+
+    .header-inner {
+
+        height: 70px;
+
+        padding: 0 20px;
+
+    }
+
+
+    /* MOBILE LOGO */
+
+    .finance-logo img {
+
+        width: 125px;
+
+    }
+
+
+    /* =================================================
+       MOBILE NAVIGATION
+    ================================================= */
+
+    .main-navigation {
+
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 0;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 15px 20px 20px;
+
+        background: rgba(15, 20, 30, 0.97);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 0;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* SHOW MENU */
+
+    .main-navigation.active {
+
+        display: flex;
+
+    }
+
+
+    /* =================================================
+       MOBILE NAV LINKS
+    ================================================= */
+
+    .main-navigation .nav-link {
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 13px 5px;
+
+        font-size: 13px;
+
+        box-sizing: border-box;
+
+    }
+
+
+    /* =================================================
+       MOBILE ENQUIRY BUTTON
+    ================================================= */
+
+    .main-navigation .enquiry-button {
+
+        width: 100%;
+
+        height: 42px;
+
+        margin: 10px 0 0;
+
+        padding: 0 20px;
+
+        font-size: 12px;
+
+        justify-content: center;
+
+    }
+
+
+    /* =================================================
+       SHOW MOBILE BUTTON
+    ================================================= */
+
+    .mobile-menu-button {
+
+        display: block;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .header-inner {
+
+        padding: 0 15px;
+
+    }
+
+
+    .finance-logo img {
+
+        width: 115px;
+
+    }
+
+
+    .mobile-menu-button {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .mobile-menu-button span {
+
+        width: 21px;
+
+    }
+
+}

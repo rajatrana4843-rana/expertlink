@@ -1,0 +1,7203 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #222;
+
+    background: #fff;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+button,
+a {
+    font-family: inherit;
+}
+
+
+button {
+    border: 0;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+
+/* =====================================================
+   HERO SLIDER
+===================================================== */
+
+.hero-slider {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 800px;
+
+    overflow: hidden;
+
+    background: #111;
+
+
+
+    user-select: none;
+
+}
+
+
+
+/* =====================================================
+   HERO SLIDES
+===================================================== */
+
+.hero-slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-position: center center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(1.08);
+
+    z-index: 1;
+
+    transition:
+        opacity 1s ease,
+        transform 6s ease,
+        visibility 1s ease;
+
+}
+
+
+.hero-slide.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+
+    z-index: 2;
+
+}
+
+
+
+/* =====================================================
+   HERO DARK OVERLAY
+===================================================== */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.45) 0%,
+            rgba(0, 0, 0, 0.20) 45%,
+            rgba(0, 0, 0, 0.08) 100%
+        );
+
+}
+
+
+
+/* =====================================================
+   HERO CONTENT BASE
+===================================================== */
+
+.hero-content {
+
+    position: absolute;
+
+    z-index: 5;
+
+    color: #fff;
+
+    opacity: 0;
+
+    pointer-events: auto;
+
+    transition:
+        opacity .75s ease .20s,
+        transform .85s
+        cubic-bezier(.22,.61,.36,1)
+        .20s;
+
+}
+
+
+
+/* =====================================================
+   CONTENT ACTIVE ANIMATION
+===================================================== */
+
+.hero-slide:not(.active) .hero-content {
+
+    opacity: 0;
+
+}
+
+
+.hero-slide.active .hero-content {
+
+    opacity: 1;
+
+}
+
+
+
+/* =====================================================
+   SLIDE 1
+===================================================== */
+
+.slide-one-content {
+
+    top: 50%;
+
+    right: 18%;
+
+    transform:
+        translateY(calc(-50% + 45px));
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 60px;
+
+}
+
+
+.hero-slide.active .slide-one-content {
+
+    transform:
+        translateY(-50%);
+
+}
+
+
+
+
+/* =====================================================
+   EARN / MANAGE / SAVE
+===================================================== */
+
+.earn-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    font-size: 40px;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+}
+
+
+.earn-content span {
+
+    display: block;
+
+}
+
+
+.earn-content span:nth-of-type(2) {
+
+    font-weight: 700;
+
+}
+
+
+.earn-content strong {
+
+    font-size: 35px;
+
+    font-weight: 300;
+
+}
+
+
+
+/* =====================================================
+   SLIDES 2, 3, 4
+===================================================== */
+
+.slide-two-content,
+.slide-three-content,
+.slide-four-content {
+
+    top: 50%;
+
+    width: 410px;
+
+    transform:
+        translateY(calc(-50% + 45px));
+
+}
+
+
+.slide-two-content,
+.slide-three-content {
+
+    left: 13%;
+
+}
+
+
+.slide-four-content {
+
+    left: 52%;
+
+}
+
+
+.hero-slide.active
+.slide-two-content,
+.hero-slide.active
+.slide-three-content,
+.hero-slide.active
+.slide-four-content {
+
+    transform:
+        translateY(-50%);
+
+}
+
+
+
+/* =====================================================
+   SMALL HEADING
+===================================================== */
+
+.hero-small-heading {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #fff;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    letter-spacing: .2px;
+
+}
+
+
+
+/* =====================================================
+   HERO HEADING
+===================================================== */
+
+.hero-content h1 {
+
+    margin: 0 0 18px;
+
+    color: #fff;
+
+    font-size: 50px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* =====================================================
+   HERO PARAGRAPH
+===================================================== */
+
+.hero-content p {
+
+    max-width: 400px;
+
+    margin: 0 0 25px;
+
+    color:
+        rgba(255, 255, 255, .88);
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =====================================================
+   HERO BUTTON
+===================================================== */
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 94px;
+
+    height: 34px;
+
+    padding: 0 19px;
+
+    background: #fff;
+
+    color: #555;
+
+    border-radius: 2px;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+
+}
+
+
+.hero-button:hover {
+
+    background: #fff900;
+
+    color: #222;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+
+/* =====================================================
+   ARROWS
+===================================================== */
+
+.hero-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 70px;
+
+    height: 100px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transform:
+        translateY(-50%);
+
+}
+
+
+.hero-prev {
+
+    left: 5px;
+
+}
+
+
+.hero-next {
+
+    right: 5px;
+
+}
+
+
+.hero-arrow span {
+
+    display: block;
+
+    width: 21px;
+
+    height: 21px;
+
+    border-color:
+        rgba(255, 255, 255, .95);
+
+    border-style: solid;
+
+    transition:
+        border-color .3s ease,
+        transform .3s ease;
+
+}
+
+
+.hero-prev span {
+
+    border-width:
+        0 0 1px 1px;
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.hero-next span {
+
+    border-width:
+        1px 1px 0 0;
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.hero-prev:hover span {
+
+    border-color: #fff900;
+
+    transform:
+        translateX(-5px)
+        rotate(45deg);
+
+}
+
+
+.hero-next:hover span {
+
+    border-color: #fff900;
+
+    transform:
+        translateX(5px)
+        rotate(45deg);
+
+}
+
+
+
+/* =====================================================
+   YELLOW SIDE BUTTON
+===================================================== */
+
+.hero-side-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    right: 0;
+
+    z-index: 35;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff900;
+
+    color: #222;
+
+    font-size: 14px;
+
+    transform:
+        translateY(-50%);
+
+    transition:
+        width .3s ease;
+
+}
+
+
+.hero-side-button:hover {
+
+    width: 57px;
+
+}
+
+
+.hero-side-button span {
+
+    line-height: 1;
+
+}
+
+
+
+
+/* =====================================================
+   NEXT SECTION
+===================================================== */
+
+.intro-section {
+
+    position: relative;
+
+    padding: 110px 20px;
+
+    text-align: center;
+
+    background: #fff;
+
+}
+
+
+.intro-label {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.intro-section h2 {
+
+    max-width: 760px;
+
+    margin: 0 auto 20px;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    line-height: 1.3;
+
+}
+
+
+.intro-section p {
+
+    margin: 0;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .slide-one-content {
+
+        right: 12%;
+
+        gap: 40px;
+
+    }
+
+
+    .slide-two-content,
+    .slide-three-content {
+
+        left: 11%;
+
+    }
+
+
+    .slide-four-content {
+
+        left: 47%;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero-slider {
+
+        height: 700px;
+
+        min-height: 650px;
+
+    }
+
+
+    .hero-slide {
+
+        background-position:
+            center center;
+
+    }
+
+
+    .hero-overlay {
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0, 0, 0, .48),
+                rgba(0, 0, 0, .18)
+            );
+
+    }
+
+
+    /* Slide 1 */
+
+    .slide-one-content {
+
+        left: 50%;
+
+        right: auto;
+
+        top: 50%;
+
+        width: 90%;
+
+        justify-content: center;
+
+        gap: 30px;
+
+        transform:
+            translate(-50%, calc(-50% + 40px));
+
+    }
+
+
+    .hero-slide.active
+    .slide-one-content {
+
+        transform:
+            translate(-50%, -50%);
+
+    }
+
+
+    /* Other slides */
+
+    .slide-two-content,
+    .slide-three-content,
+    .slide-four-content {
+
+        left: 35px;
+
+        right: 35px;
+
+        top: 55%;
+
+        width: auto;
+
+        transform:
+            translateY(calc(-50% + 40px));
+
+    }
+
+
+    .hero-slide.active
+    .slide-two-content,
+    .hero-slide.active
+    .slide-three-content,
+    .hero-slide.active
+    .slide-four-content {
+
+        transform:
+            translateY(-50%);
+
+    }
+
+
+    .hero-small-heading {
+
+        font-size: 16px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .hero-content p {
+
+        max-width: 320px;
+
+        font-size: 11px;
+
+    }
+
+
+    /* Arrows */
+
+    .hero-arrow {
+
+        width: 48px;
+
+        height: 70px;
+
+    }
+
+
+    .hero-prev {
+
+        left: 0;
+
+    }
+
+
+    .hero-next {
+
+        right: 0;
+
+    }
+
+
+    /* Side button */
+
+    .hero-side-button {
+
+        width: 43px;
+
+        height: 43px;
+
+    }
+
+
+    /* Dots */
+
+    .hero-dots {
+
+        bottom: 18px;
+
+    }
+
+
+    /* Intro */
+
+    .intro-section {
+
+        padding: 75px 20px;
+
+    }
+
+
+    .intro-section h2 {
+
+        font-size: 28px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero-slider {
+
+        height: 650px;
+
+        min-height: 600px;
+
+    }
+
+
+    .slide-one-content {
+
+        flex-direction: column;
+
+        gap: 25px;
+
+    }
+
+
+    .speech-bubble {
+
+        width: 105px;
+
+        height: 60px;
+
+        font-size: 11px;
+
+    }
+
+
+    .earn-content {
+
+        font-size: 18px;
+
+    }
+
+
+    .hero-small-heading {
+
+        font-size: 14px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 22px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 10px;
+
+    }
+
+
+    .hero-button {
+
+        height: 32px;
+
+        min-width: 88px;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    .hero-slide,
+    .hero-content,
+    .hero-button,
+    .hero-arrow span {
+
+        transition: none !important;
+
+    }
+
+}
+
+/* =========================================================
+   EXPERT LINK - GEM SERVICES SECTION
+   HOVER EFFECT
+========================================================= */
+
+.el-gem-services {
+    width: 100%;
+    padding: 140px 100px 70px 100px;
+    background: #ffffff;
+    overflow: visible;
+}
+
+
+/* =========================================================
+   SERVICES CONTAINER
+========================================================= */
+
+.el-gem-services-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    position: relative;
+    overflow: visible;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.el-gem-card {
+    position: relative;
+
+    width: 100%;
+    height: 450px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+
+    padding: 110px 35px 35px;
+
+    text-align: center;
+
+    z-index: 1;
+
+    transition:
+        transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+        background-color 0.55s ease,
+        border-color 0.55s ease,
+        box-shadow 0.55s ease;
+}
+
+
+/* Last card right border */
+
+.el-gem-card:last-child {
+    border-right: 1px solid #dddddd;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+   THIS IS THE MAIN EFFECT
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .el-gem-card:hover {
+
+        background: #2ed5df;
+
+        transform: translateY(-55px);
+
+        border-color: #2ed5df;
+
+        box-shadow:
+            0 25px 50px rgba(0, 0, 0, 0.12);
+
+        z-index: 50;
+    }
+
+}
+
+
+/* =========================================================
+   ICON CIRCLE
+========================================================= */
+
+.el-gem-icon {
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    top: -60px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #25292d;
+
+    border: 2px solid #2ed5df;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #2ed5df;
+
+    font-size: 35px;
+
+    box-sizing: border-box;
+
+    z-index: 100;
+
+    transition:
+        transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+        background-color 0.45s ease,
+        color 0.45s ease;
+}
+
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .el-gem-card:hover .el-gem-icon {
+
+        transform:
+            translateX(-50%)
+            scale(1.02);
+
+        background: #25292d;
+
+        color: #2ed5df;
+    }
+
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.el-gem-card-content {
+
+    width: 100%;
+    max-width: 280px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-gem-card-content h3 {
+
+    margin: 0 0 30px;
+
+    padding: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    color: #292d31;
+
+    text-transform: uppercase;
+
+    transition:
+        color 0.45s ease;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.el-gem-card-content p {
+
+    margin: 0 auto 35px;
+
+    padding: 0;
+
+    max-width: 275px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    font-weight: 400;
+
+    color: #929292;
+
+    transition:
+        color 0.45s ease;
+}
+
+
+/* =========================================================
+   TEXT ON HOVER
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .el-gem-card:hover
+    .el-gem-card-content h3 {
+
+        color: #000;
+    }
+
+
+    .el-gem-card:hover
+    .el-gem-card-content p {
+
+        color: #ffffff;
+    }
+
+}
+
+
+/* =========================================================
+   READ MORE BUTTON
+========================================================= */
+
+.el-gem-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 145px;
+    height: 48px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #2ed5df;
+
+    border-radius: 3px;
+
+    color: #929292;
+
+    text-decoration: none;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        color 0.35s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON WHEN CARD IS HOVERED
+========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .el-gem-card:hover .el-gem-btn {
+
+        background: #ffffff;
+
+        border-color: #ffffff;
+
+        color: #2ed5df;
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.el-gem-btn:hover {
+
+    background: #25292d !important;
+
+    border-color: #25292d !important;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   REMOVE OLD ACTIVE STATE
+========================================================= */
+
+/*
+   IMPORTANT:
+   There is NO .active styling here.
+   Hover controls the effect.
+*/
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .el-gem-services {
+
+        padding: 100px 0 80px;
+    }
+
+
+    .el-gem-services-container {
+
+        width: 92%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        row-gap: 80px;
+    }
+
+
+    .el-gem-card {
+
+        height: 440px;
+
+        padding-top: 140px;
+    }
+
+
+    .el-gem-card:nth-child(2),
+    .el-gem-card:nth-child(4) {
+
+        border-right: 1px solid #dddddd;
+    }
+
+
+    .el-gem-card:nth-child(3),
+    .el-gem-card:nth-child(4) {
+
+        border-top: 1px solid #dddddd;
+    }
+
+
+    @media (hover: hover) and (pointer: fine) {
+
+        .el-gem-card:hover {
+
+            transform: translateY(-45px);
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .el-gem-services {
+
+        padding: 85px 0 60px;
+    }
+
+
+    .el-gem-services-container {
+
+        width: 88%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 80px;
+    }
+
+
+    .el-gem-card {
+
+        width: 100%;
+
+        height: 420px;
+
+        padding:
+            135px
+            25px
+            35px;
+
+        border: 1px solid #dddddd;
+    }
+
+
+    .el-gem-icon {
+
+        width: 105px;
+        height: 105px;
+
+        top: -53px;
+
+        font-size: 32px;
+    }
+
+
+    .el-gem-card-content {
+
+        max-width: 290px;
+    }
+
+
+    .el-gem-card-content h3 {
+
+        font-size: 18px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .el-gem-card-content p {
+
+        font-size: 14px;
+
+        line-height: 1.75;
+
+        margin-bottom: 28px;
+    }
+
+
+    .el-gem-btn {
+
+        width: 140px;
+
+        height: 46px;
+    }
+
+
+    @media (hover: hover) and (pointer: fine) {
+
+        .el-gem-card:hover {
+
+            transform: translateY(-35px);
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .el-gem-services-container {
+
+        width: 90%;
+    }
+
+
+    .el-gem-card {
+
+        height: 410px;
+
+        padding-top: 130px;
+    }
+
+
+    .el-gem-icon {
+
+        width: 95px;
+        height: 95px;
+
+        top: -48px;
+
+        font-size: 29px;
+    }
+
+
+    .el-gem-card-content h3 {
+
+        font-size: 17px;
+    }
+
+
+    .el-gem-card-content p {
+
+        font-size: 13px;
+    }
+
+}
+
+/* =========================================================
+   EXPERT LINK
+   EXPERTISE SECTION
+========================================================= */
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.el-expertise-section {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 700px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.el-expertise-bg {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+
+        linear-gradient(
+            105deg,
+            rgba(255,255,255,0.97) 0%,
+            rgba(245,252,253,0.94) 35%,
+            rgba(220,248,249,0.78) 70%,
+            rgba(32,200,200,0.16) 100%
+        ),
+
+        url("../images/expertise-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.el-expertise-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 92%;
+
+    max-width: 1400px;
+
+    min-height: 720px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.el-expertise-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 49%;
+
+    padding-left: 3%;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.el-section-line {
+
+    display: block;
+
+    width: 62px;
+
+    height: 4px;
+
+    margin-bottom: 22px;
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #20c8c8,
+            #0757bd
+        );
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-expertise-content h2 {
+
+    margin: 0;
+
+    padding: 0;
+
+    max-width: 580px;
+
+    color: #0757bd;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 36px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.el-expertise-content h2 strong {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #202a30;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   COMPANY NAME
+========================================================= */
+
+.el-company-name {
+
+    margin-top: 17px;
+
+    color: #202a30;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.el-expertise-content p {
+
+    max-width: 620px;
+
+    margin:
+        28px
+        0
+        32px;
+
+    color: #303b42;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.el-know-more {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 145px;
+
+    height: 48px;
+
+    box-sizing: border-box;
+
+    border:
+        1.5px solid #0757bd;
+
+    background: transparent;
+
+    color: #0757bd;
+
+    text-decoration: none;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    transition:
+        all 0.35s ease;
+
+}
+
+
+.el-know-more:hover {
+
+    background: #0757bd;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(7,87,189,0.20);
+
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.el-expertise-visual {
+
+    position: relative;
+
+    width: 650px;
+
+    height: 610px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   SOFT GLOW
+========================================================= */
+
+.el-expertise-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 480px;
+
+    height: 480px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(32,200,200,0.18) 0%,
+            rgba(32,200,200,0.08) 42%,
+            transparent 72%
+        );
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   ORBIT CIRCLE
+========================================================= */
+
+.el-orbit {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.el-orbit-one {
+
+    width: 430px;
+
+    height: 430px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px dashed rgba(7,87,189,0.20);
+
+    animation:
+        el-rotate
+        22s
+        linear
+        infinite;
+
+}
+
+
+.el-orbit-two {
+
+    width: 520px;
+
+    height: 520px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px solid rgba(32,200,200,0.10);
+
+    animation:
+        el-rotate-reverse
+        28s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.el-service-card {
+
+    position: absolute;
+
+    width: 250px;
+
+    min-height: 115px;
+
+    padding: 17px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border:
+        1px solid rgba(32,200,200,0.20);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.09);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 5;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.el-service-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.025);
+
+    border-color:
+        rgba(32,200,200,0.75);
+
+    box-shadow:
+        0 25px 45px rgba(7,87,189,0.15);
+
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.el-service-icon {
+
+    flex:
+        0 0 52px;
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #20c8c8,
+            #0757bd
+        );
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 18px rgba(7,87,189,0.18);
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+.el-service-card:hover .el-service-icon {
+
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.el-service-content {
+
+    min-width: 0;
+
+}
+
+
+.el-service-content h3 {
+
+    margin:
+        0
+        0
+        6px;
+
+    padding: 0;
+
+    color: #202a30;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+}
+
+
+.el-service-content p {
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #68757b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   CARD POSITIONS
+========================================================= */
+
+
+/* TOP LEFT */
+
+.el-card-one {
+
+    left: 0;
+
+    top: 55px;
+
+    animation:
+        el-card-one
+        4.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* TOP RIGHT */
+
+.el-card-two {
+
+    right: 0;
+
+    top: 55px;
+
+    animation:
+        el-card-two
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* BOTTOM LEFT */
+
+.el-card-three {
+
+    left: 0;
+
+    bottom: 55px;
+
+    animation:
+        el-card-three
+        5.2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* BOTTOM RIGHT */
+
+.el-card-four {
+
+    right: 0;
+
+    bottom: 55px;
+
+    animation:
+        el-card-four
+        4.7s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CENTER CIRCLE
+========================================================= */
+
+.el-center-circle {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 225px;
+
+    height: 225px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0757bd 0%,
+            #148fc3 48%,
+            #20c8c8 100%
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 25px 55px rgba(7,87,189,0.24);
+
+    z-index: 10;
+
+    animation:
+        el-center-float
+        4.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CENTER OUTER RING
+========================================================= */
+
+.el-center-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -11px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(32,200,200,0.50);
+
+    animation:
+        el-pulse
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================================
+   CENTER DASHED RING
+========================================================= */
+
+.el-center-circle::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -25px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed rgba(7,87,189,0.20);
+
+    animation:
+        el-rotate
+        18s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   CENTER INNER
+========================================================= */
+
+.el-center-inner {
+
+    width: 178px;
+
+    height: 178px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.98);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 0 30px rgba(7,87,189,0.07);
+
+}
+
+
+/* =========================================================
+   CENTER ICON
+========================================================= */
+
+.el-center-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    margin-bottom: 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #20c8c8,
+            #0757bd
+        );
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+    box-shadow:
+        0 8px 18px rgba(7,87,189,0.18);
+
+}
+
+
+/* =========================================================
+   CENTER TEXT
+========================================================= */
+
+.el-center-inner span {
+
+    color: #0757bd;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.el-center-inner strong {
+
+    margin-top: 5px;
+
+    color: #202a30;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.el-center-inner small {
+
+    margin-top: 5px;
+
+    color: #7a858b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 0.6px;
+
+}
+
+
+/* =========================================================
+   CONNECTING DOTS
+========================================================= */
+
+.el-dot {
+
+    position: absolute;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #20c8c8;
+
+    box-shadow:
+        0 0 0 5px rgba(32,200,200,0.10);
+
+    z-index: 3;
+
+    animation:
+        el-dot-pulse
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+.el-dot-one {
+
+    left: 72px;
+
+    top: 180px;
+
+}
+
+
+.el-dot-two {
+
+    right: 72px;
+
+    top: 180px;
+
+    animation-delay: 0.5s;
+
+}
+
+
+.el-dot-three {
+
+    left: 72px;
+
+    bottom: 180px;
+
+    animation-delay: 1s;
+
+}
+
+
+.el-dot-four {
+
+    right: 72px;
+
+    bottom: 180px;
+
+    animation-delay: 1.5s;
+
+}
+
+
+/* =========================================================
+   ANIMATION - CENTER
+========================================================= */
+
+@keyframes el-center-float {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-8px);
+
+    }
+
+}
+
+
+/* =========================================================
+   ANIMATION - PULSE
+========================================================= */
+
+@keyframes el-pulse {
+
+    0%,
+    100% {
+
+        opacity: 0.3;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: 0.85;
+
+        transform: scale(1.04);
+
+    }
+
+}
+
+
+/* =========================================================
+   ANIMATION - ORBIT
+========================================================= */
+
+@keyframes el-rotate {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes el-rotate-reverse {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   CARD ANIMATIONS
+========================================================= */
+
+@keyframes el-card-one {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-7px);
+
+    }
+
+}
+
+
+@keyframes el-card-two {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(8px);
+
+    }
+
+}
+
+
+@keyframes el-card-three {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(7px);
+
+    }
+
+}
+
+
+@keyframes el-card-four {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-7px);
+
+    }
+
+}
+
+
+/* =========================================================
+   DOT ANIMATION
+========================================================= */
+
+@keyframes el-dot-pulse {
+
+    0%,
+    100% {
+
+        opacity: 0.4;
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.6);
+
+    }
+
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .el-expertise-section {
+
+        min-height: 650px;
+
+    }
+
+
+    .el-expertise-container {
+
+        min-height: 650px;
+
+    }
+
+
+    .el-expertise-content {
+
+        width: 47%;
+
+    }
+
+
+    .el-expertise-content h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .el-expertise-content p {
+
+        font-size: 14px;
+
+    }
+
+
+    .el-expertise-visual {
+
+        width: 560px;
+
+        height: 550px;
+
+    }
+
+
+    .el-service-card {
+
+        width: 220px;
+
+        min-height: 105px;
+
+        padding: 13px;
+
+    }
+
+
+    .el-service-icon {
+
+        flex-basis: 46px;
+
+        width: 46px;
+
+        height: 46px;
+
+        font-size: 17px;
+
+    }
+
+
+    .el-service-content h3 {
+
+        font-size: 13px;
+
+    }
+
+
+    .el-service-content p {
+
+        font-size: 10px;
+
+    }
+
+
+    .el-center-circle {
+
+        width: 195px;
+
+        height: 195px;
+
+    }
+
+
+    .el-center-inner {
+
+        width: 155px;
+
+        height: 155px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .el-expertise-section {
+
+        min-height: 600px;
+
+    }
+
+
+    .el-expertise-container {
+
+        min-height: 600px;
+
+    }
+
+
+    .el-expertise-content {
+
+        width: 46%;
+
+    }
+
+
+    .el-expertise-content h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .el-company-name {
+
+        font-size: 16px;
+
+    }
+
+
+    .el-expertise-content p {
+
+        font-size: 13px;
+
+        line-height: 1.75;
+
+    }
+
+
+    .el-expertise-visual {
+
+        width: 490px;
+
+        height: 500px;
+
+    }
+
+
+    .el-service-card {
+
+        width: 185px;
+
+        min-height: 90px;
+
+        padding: 10px;
+
+        gap: 8px;
+
+    }
+
+
+    .el-service-icon {
+
+        flex-basis: 39px;
+
+        width: 39px;
+
+        height: 39px;
+
+        border-radius: 10px;
+
+        font-size: 14px;
+
+    }
+
+
+    .el-service-content h3 {
+
+        font-size: 10px;
+
+    }
+
+
+    .el-service-content p {
+
+        font-size: 8.5px;
+
+    }
+
+
+    .el-center-circle {
+
+        width: 170px;
+
+        height: 170px;
+
+    }
+
+
+    .el-center-inner {
+
+        width: 137px;
+
+        height: 137px;
+
+    }
+
+
+    .el-center-icon {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 14px;
+
+    }
+
+
+    .el-center-inner strong {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .el-expertise-section {
+
+        min-height: auto;
+
+        padding:
+            70px
+            0
+            70px;
+
+    }
+
+
+    .el-expertise-bg {
+
+        background-image:
+
+            linear-gradient(
+                180deg,
+                rgba(255,255,255,0.96),
+                rgba(233,249,251,0.94)
+            ),
+
+            url("../images/expertise-bg.jpg");
+
+        background-position: center;
+
+    }
+
+
+    .el-expertise-container {
+
+        width: 90%;
+
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    /* LEFT */
+
+    .el-expertise-content {
+
+        width: 100%;
+
+        padding:
+            0
+            5px
+            60px;
+
+        text-align: center;
+
+    }
+
+
+    .el-section-line {
+
+        margin:
+            0
+            auto
+            20px;
+
+    }
+
+
+    .el-expertise-content h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .el-expertise-content h2 strong {
+
+        margin-top: 3px;
+
+    }
+
+
+    .el-company-name {
+
+        font-size: 15px;
+
+    }
+
+
+    .el-expertise-content p {
+
+        max-width: 650px;
+
+        margin:
+            25px
+            auto
+            30px;
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+    }
+
+
+    /* VISUAL */
+
+    .el-expertise-visual {
+
+        width: 100%;
+
+        max-width: 620px;
+
+        height: 570px;
+
+    }
+
+
+    .el-service-card {
+
+        width: 46%;
+
+        min-height: 105px;
+
+        padding: 12px;
+
+    }
+
+
+    .el-card-one {
+
+        left: 0;
+
+        top: 25px;
+
+    }
+
+
+    .el-card-two {
+
+        right: 0;
+
+        top: 25px;
+
+    }
+
+
+    .el-card-three {
+
+        left: 0;
+
+        bottom: 25px;
+
+    }
+
+
+    .el-card-four {
+
+        right: 0;
+
+        bottom: 25px;
+
+    }
+
+
+    .el-center-circle {
+
+        width: 185px;
+
+        height: 185px;
+
+    }
+
+
+    .el-center-inner {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+
+    .el-orbit-one {
+
+        width: 330px;
+
+        height: 330px;
+
+    }
+
+
+    .el-orbit-two {
+
+        width: 400px;
+
+        height: 400px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .el-expertise-section {
+
+        padding:
+            60px
+            0
+            60px;
+
+    }
+
+
+    .el-expertise-container {
+
+        width: 92%;
+
+    }
+
+
+    .el-expertise-content {
+
+        padding-bottom: 50px;
+
+    }
+
+
+    .el-expertise-content h2 {
+
+        font-size: 21px;
+
+        line-height: 1.4;
+
+    }
+
+
+    .el-company-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .el-expertise-content p {
+
+        font-size: 13px;
+
+        line-height: 1.75;
+
+    }
+
+
+    .el-know-more {
+
+        width: 135px;
+
+        height: 45px;
+
+        font-size: 13px;
+
+    }
+
+
+    .el-expertise-visual {
+
+        height: 500px;
+
+    }
+
+
+    /* CENTER */
+
+    .el-center-circle {
+
+        width: 150px;
+
+        height: 150px;
+
+    }
+
+
+    .el-center-inner {
+
+        width: 122px;
+
+        height: 122px;
+
+    }
+
+
+    .el-center-icon {
+
+        width: 31px;
+
+        height: 31px;
+
+        margin-bottom: 4px;
+
+        font-size: 12px;
+
+    }
+
+
+    .el-center-inner span {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .el-center-inner strong {
+
+        font-size: 10px;
+
+    }
+
+
+    .el-center-inner small {
+
+        font-size: 6.5px;
+
+    }
+
+
+    /* CARDS */
+
+    .el-service-card {
+
+        width: 48%;
+
+        min-height: 88px;
+
+        padding: 8px;
+
+        gap: 7px;
+
+        border-radius: 11px;
+
+    }
+
+
+    .el-service-icon {
+
+        flex-basis: 30px;
+
+        width: 30px;
+
+        height: 30px;
+
+        border-radius: 8px;
+
+        font-size: 11px;
+
+    }
+
+
+    .el-service-content h3 {
+
+        font-size: 8.5px;
+
+        margin-bottom: 3px;
+
+    }
+
+
+    .el-service-content p {
+
+        font-size: 6.7px;
+
+        line-height: 1.4;
+
+    }
+
+
+    .el-orbit-one {
+
+        width: 250px;
+
+        height: 250px;
+
+    }
+
+
+    .el-orbit-two {
+
+        width: 310px;
+
+        height: 310px;
+
+    }
+
+
+    .el-dot {
+
+        width: 6px;
+
+        height: 6px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .el-center-circle,
+    .el-center-circle::before,
+    .el-center-circle::after,
+    .el-orbit,
+    .el-service-card,
+    .el-dot {
+
+        animation: none !important;
+
+    }
+
+}
+/* =========================================================
+   VIDEO CAROUSEL SECTION
+========================================================= */
+
+.video-section {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        70px 10px 70px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.video-section-header {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin:
+        0
+        auto
+        40px;
+
+    text-align: center;
+
+}
+
+
+
+
+
+/* Main heading */
+
+.video-section-header h2 {
+
+    margin: 0;
+
+    color: #232323;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 32px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* Line */
+
+.video-title-line {
+
+    width: 55px;
+
+    height: 2px;
+
+    margin:
+        10px
+        auto
+        20px;
+
+    background: #2ed9ea;
+
+}
+
+
+/* Description */
+
+.video-section-header p {
+
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #232323;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   CAROUSEL WRAPPER
+========================================================= */
+
+.video-carousel-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1560px;
+
+    margin: 0 auto;
+
+    padding:
+        0
+        65px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+.video-carousel {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    cursor: grab;
+
+    user-select: none;
+
+    touch-action: pan-y;
+
+}
+
+
+/* Dragging */
+
+.video-carousel.is-dragging {
+
+    cursor: grabbing;
+
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.video-track {
+
+    display: flex;
+
+    gap: 24px;
+
+    width: max-content;
+
+    will-change: transform;
+
+    transition:
+        transform 0.65s
+        cubic-bezier(
+            0.22,
+            0.61,
+            0.36,
+            1
+        );
+
+}
+
+
+/* =========================================================
+   VIDEO CARD
+========================================================= */
+
+.video-card {
+
+    flex:
+        0 0
+        calc(
+            (100vw - 180px - 48px) / 3
+        );
+
+    max-width: 490px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e2e7e9;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px
+        rgba(30, 50, 60, 0.08);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.video-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        #2ed9ea;
+
+    box-shadow:
+        0 18px 40px
+        rgba(30, 50, 60, 0.14);
+
+}
+
+
+/* =========================================================
+   VIDEO FRAME
+========================================================= */
+
+.video-frame {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #111;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-frame video {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #111;
+
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.video-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 50px;
+
+    height: 50px;
+
+    border:
+        1px solid #2ed9ea;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #253b50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.10);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.video-arrow span {
+
+    position: relative;
+
+    top: -2px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 36px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+}
+
+
+/* Left */
+
+.video-prev {
+
+    left: 5px;
+
+}
+
+
+/* Right */
+
+.video-next {
+
+    right: 5px;
+
+}
+
+
+/* Arrow hover */
+
+.video-arrow:hover {
+
+    background: #2ed9ea;
+
+    color: #ffffff;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.video-dots {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 35px;
+
+}
+
+
+/* Dot */
+
+.video-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #d6dde0;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        background-color 0.3s ease;
+
+}
+
+
+/* Active */
+
+.video-dot.active {
+
+    width: 27px;
+
+    border-radius: 10px;
+
+    background: #2ed9ea;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .video-section {
+
+        padding:
+            75px
+            0
+            70px;
+
+    }
+
+
+    .video-carousel-wrapper {
+
+        padding:
+            0
+            55px;
+
+    }
+
+
+    .video-card {
+
+        flex:
+            0 0
+            calc(
+                (100vw - 110px - 24px) / 2
+            );
+
+    }
+
+
+    .video-section-header h2 {
+
+        font-size: 28px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .video-section {
+
+        padding:
+            60px
+            0
+            60px;
+
+    }
+
+
+    .video-section-header {
+
+        width: calc(100% - 35px);
+
+        margin-bottom: 38px;
+
+    }
+
+
+    .video-section-header h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .video-section-header p {
+
+        font-size: 13px;
+
+    }
+
+
+    .video-carousel-wrapper {
+
+        padding:
+            0
+            42px;
+
+    }
+
+
+    .video-card {
+
+        flex:
+            0 0
+            calc(
+                100vw - 84px
+            );
+
+    }
+
+
+    .video-track {
+
+        gap: 15px;
+
+    }
+
+
+    .video-arrow {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .video-arrow span {
+
+        font-size: 29px;
+
+    }
+
+
+    .video-prev {
+
+        left: 4px;
+
+    }
+
+
+    .video-next {
+
+        right: 4px;
+
+    }
+
+}
+.video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+/* =========================================================
+   EXPERT LINK
+   STATS SECTION
+========================================================= */
+
+
+.el-stats-section {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        50px 100px;
+
+    overflow: hidden;
+
+    background: #fff;
+
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND DECORATION
+========================================================= */
+
+
+
+.el-stats-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    right: -180px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+  
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.el-stats-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   HEADING AREA
+========================================================= */
+
+.el-stats-heading {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+
+}
+
+
+/* =========================================================
+   STATS LABEL
+========================================================= */
+
+.el-stats-label {
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: #20aeb0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-stats-heading h2 {
+
+    margin: 0;
+
+    color: #151d22;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 40px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+/* =========================================================
+   SUB HEADING
+========================================================= */
+
+.el-stats-heading p {
+
+    margin:
+        15px
+        0
+        0;
+
+    color: #5f6b72;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   STATS GRID
+========================================================= */
+
+.el-stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   STAT ITEM
+========================================================= */
+
+.el-stat-item {
+
+    position: relative;
+
+    min-height: 250px;
+
+    padding:
+        20px
+        40px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    text-align: center;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+/* =========================================================
+   VERTICAL DIVIDERS
+========================================================= */
+
+.el-stat-item:not(:last-child)::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 25px;
+    right: 0;
+
+    width: 1px;
+
+    height: 200px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(7,87,189,0.20),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   STAT ICON
+========================================================= */
+
+.el-stat-icon {
+
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    margin-bottom: 26px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #20c8c8,
+            #0757bd
+        );
+
+    color: #ffffff;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 12px 28px rgba(7,87,189,0.18);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+/* =========================================================
+   ICON OUTER RING
+========================================================= */
+
+.el-stat-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(32,200,200,0.28);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+
+}
+
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.el-stat-item:hover {
+
+    transform:
+        translateY(-7px);
+
+}
+
+
+.el-stat-item:hover .el-stat-icon {
+
+    transform:
+        translateY(-4px)
+        scale(1.06);
+
+    box-shadow:
+        0 18px 35px rgba(7,87,189,0.24);
+
+}
+
+
+.el-stat-item:hover .el-stat-icon::before {
+
+    transform: scale(1.12);
+
+    border-color:
+        rgba(32,200,200,0.55);
+
+}
+
+
+/* =========================================================
+   STAT TITLE
+========================================================= */
+
+.el-stat-item h3 {
+
+    margin:
+        0
+        0
+        12px;
+
+    padding: 0;
+
+    color: #182228;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 20px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.el-counter {
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   COUNTER NUMBER
+========================================================= */
+
+.el-counter-number {
+
+    display: inline-block;
+
+    color: #20aeb0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.el-stat-item:hover .el-counter-number {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+/* =========================================================
+   SMALL DECORATIVE LINE
+========================================================= */
+
+.el-stat-item h3::after {
+
+    content: "";
+
+    display: block;
+
+    width: 28px;
+
+    height: 2px;
+
+    margin:
+        9px
+        auto
+        0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #20c8c8,
+            #0757bd
+        );
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .el-stats-section {
+
+        padding:
+            70px
+            0
+            75px;
+
+    }
+
+
+    .el-stats-heading {
+
+        margin-bottom: 55px;
+
+    }
+
+
+    .el-stats-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .el-stats-heading p {
+
+        font-size: 15px;
+
+    }
+
+
+    .el-stat-item {
+
+        padding:
+            15px
+            20px;
+
+    }
+
+
+    .el-stat-icon {
+
+        width: 78px;
+        height: 78px;
+
+        font-size: 26px;
+
+    }
+
+
+    .el-stat-item h3 {
+
+        font-size: 17px;
+
+    }
+
+
+    .el-counter-number {
+
+        font-size: 36px;
+
+    }
+
+
+    .el-stat-item:not(:last-child)::after {
+
+        height: 180px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .el-stats-section {
+
+        padding:
+            65px
+            0
+            65px;
+
+    }
+
+
+    .el-stats-container {
+
+        width: 90%;
+
+    }
+
+
+    .el-stats-heading {
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .el-stats-label {
+
+        font-size: 15px;
+
+    }
+
+
+    .el-stats-heading h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .el-stats-heading p {
+
+        margin-top: 17px;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+    }
+
+
+    .el-stats-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .el-stat-item {
+
+        min-height: 230px;
+
+        padding:
+            25px
+            15px;
+
+    }
+
+
+    .el-stat-item:not(:last-child)::after {
+
+        top: auto;
+
+        right: auto;
+
+        bottom: 0;
+
+        left: 10%;
+
+        width: 80%;
+
+        height: 1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(7,87,189,0.20),
+                transparent
+            );
+
+    }
+
+
+    .el-stat-icon {
+
+        width: 78px;
+        height: 78px;
+
+        margin-bottom: 22px;
+
+        font-size: 26px;
+
+    }
+
+
+    .el-stat-item h3 {
+
+        font-size: 18px;
+
+    }
+
+
+    .el-counter-number {
+
+        font-size: 38px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .el-stats-heading h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .el-stats-heading p {
+
+        font-size: 13px;
+
+    }
+
+
+    .el-stat-item {
+
+        min-height: 215px;
+
+    }
+
+
+    .el-stat-icon {
+
+        width: 72px;
+        height: 72px;
+
+        font-size: 24px;
+
+    }
+
+
+    .el-stat-item h3 {
+
+        font-size: 17px;
+
+    }
+
+
+    .el-counter-number {
+
+        font-size: 35px;
+
+    }
+
+}
+
+/* =========================================================
+   EXPERTLINK CTA SECTION
+   BLUE + CYAN LOGO THEME
+========================================================= */
+
+.finance-cta-section {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-image:
+        url("../images/call-bg.jpg");
+
+    background-size: cover;
+
+    background-position: top center;
+
+}
+
+
+/* =========================================================
+   BLUE / CYAN OVERLAY
+========================================================= */
+
+.finance-cta-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 63, 125, 0.92) 0%,
+            rgba(0, 103, 190, 0.88) 42%,
+            rgba(0, 178, 218, 0.84) 72%,
+            rgba(0, 210, 225, 0.86) 100%
+        );
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.finance-cta-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+}
+
+
+/* =========================================================
+   PHONE ICON
+========================================================= */
+
+.finance-cta-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.finance-cta-icon svg {
+
+    width: 50px;
+
+    height: 50px;
+
+    fill: none;
+
+    stroke: #ffffff;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+/* =========================================================
+   PHONE NUMBER
+========================================================= */
+
+.finance-phone-number {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 58px;
+
+    margin-bottom: 20px;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   TYPING CURSOR
+========================================================= */
+
+.typing-cursor {
+
+    display: inline-block;
+
+    width: 3px;
+
+    height: 42px;
+
+    margin-left: 5px;
+
+    background: #ffffff;
+
+    vertical-align: middle;
+
+    animation:
+        expertCursorBlink 0.65s infinite;
+
+}
+
+
+@keyframes expertCursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.finance-cta-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+}
+
+
+.finance-cta-heading h3 {
+
+    margin: 0;
+
+    padding: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    letter-spacing: 0.7px;
+
+}
+
+
+.cta-line {
+
+    width: 88px;
+
+    height: 2px;
+
+    flex-shrink: 0;
+
+    background: #00e4f0;
+
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+
+.finance-cta-small {
+
+    margin: 18px 0 0;
+
+    padding: 0;
+
+    color: #e9fcff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+}
+
+
+/* =========================================================
+   SUBTLE IMAGE VISIBILITY
+========================================================= */
+
+.finance-cta-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 80, 160, 0.12),
+            rgba(0, 220, 235, 0.08)
+        );
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .finance-cta-section {
+
+        min-height: 320px;
+
+    }
+
+    .finance-cta-content {
+
+        padding: 50px 20px;
+
+    }
+
+    .finance-phone-number {
+
+        font-size: 34px;
+
+        min-height: 48px;
+
+    }
+
+    .typing-cursor {
+
+        height: 34px;
+
+    }
+
+    .finance-cta-heading {
+
+        gap: 14px;
+
+    }
+
+    .finance-cta-heading h3 {
+
+        font-size: 14px;
+
+    }
+
+    .cta-line {
+
+        width: 55px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .finance-cta-section {
+
+        min-height: 280px;
+
+    }
+
+    .finance-cta-content {
+
+        padding: 45px 15px;
+
+    }
+
+    .finance-cta-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+    }
+
+    .finance-cta-icon svg {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+    .finance-phone-number {
+
+        font-size: 25px;
+
+        min-height: 36px;
+
+        margin-bottom: 18px;
+
+    }
+
+    .typing-cursor {
+
+        width: 2px;
+
+        height: 26px;
+
+    }
+
+    .finance-cta-heading {
+
+        gap: 7px;
+
+    }
+
+    .finance-cta-heading h3 {
+
+        font-size: 9px;
+
+        letter-spacing: 0.4px;
+
+    }
+
+    .cta-line {
+
+        width: 25px;
+
+    }
+
+    .finance-cta-small {
+
+        margin-top: 12px;
+
+        font-size: 9px;
+
+    }
+
+}
+/* =========================================================
+   EXPERT LINK
+   CLIENT LOGOS SECTION
+========================================================= */
+
+.el-client-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 50px 100px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND
+========================================================= */
+
+.el-client-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    left: -220px;
+    top: 30px;
+
+    border-radius: 50%;
+
+
+
+    pointer-events: none;
+}
+
+
+.el-client-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: -200px;
+    bottom: -150px;
+
+    border-radius: 50%;
+
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.el-client-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-client-heading {
+
+    max-width: 750px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.el-client-label {
+
+    display: inline-block;
+
+    margin-bottom: 13px;
+
+    color: #0878d1;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-client-heading h2 {
+
+    margin: 0;
+
+    color: #142b49;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 40px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.el-client-heading h2 strong {
+
+    color: #147ddd;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.el-client-heading p {
+
+    max-width: 650px;
+
+    margin: 15px auto 0;
+
+    color: #687c91;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   MARQUEE OUTER
+========================================================= */
+
+.el-client-marquee {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 10px 0 20px;
+
+    /*
+       Fade effect on left/right
+    */
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%
+        );
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 8%,
+            black 92%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   LOGO TRACK
+========================================================= */
+
+.el-client-track {
+
+    display: flex;
+
+    align-items: center;
+
+    width: max-content;
+
+    gap: 25px;
+
+    animation:
+        elClientMarquee
+        32s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   PAUSE ON HOVER
+========================================================= */
+
+.el-client-marquee:hover
+.el-client-track {
+
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   LOGO BOX
+========================================================= */
+
+.el-client-logo {
+
+    flex: 0 0 200px;
+
+    width: 200px;
+
+    height: 120px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 1px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #e7eef4;
+
+    border-radius: 10px;
+
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* =========================================================
+   LOGO IMAGE
+========================================================= */
+
+.el-client-logo img {
+
+    display: block;
+
+    max-width: 200px;
+
+    max-height: 110px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+
+
+    opacity: 0.72;
+
+    transition:
+        filter 0.35s ease,
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* =========================================================
+   LOGO HOVER
+========================================================= */
+
+.el-client-logo:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(20, 125, 221, 0.25);
+
+    box-shadow:
+        0 15px 35px
+        rgba(20, 100, 150, 0.12);
+}
+
+
+
+
+/* =========================================================
+   MARQUEE ANIMATION
+========================================================= */
+
+@keyframes elClientMarquee {
+
+    from {
+
+        transform:
+            translateX(0);
+
+    }
+
+    to {
+
+        transform:
+            translateX(
+                calc(-50% - 12.5px)
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .el-client-section {
+
+        padding:
+            75px
+            0
+            80px;
+    }
+
+
+    .el-client-heading {
+
+        margin-bottom: 40px;
+    }
+
+
+    .el-client-heading h2 {
+
+        font-size: 32px;
+    }
+
+
+    .el-client-logo {
+
+        flex-basis: 165px;
+
+        width: 165px;
+
+        height: 95px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .el-client-section {
+
+        padding:
+            60px
+            0
+            65px;
+    }
+
+
+    .el-client-container {
+
+        width: 91%;
+    }
+
+
+    .el-client-heading {
+
+        margin-bottom: 32px;
+    }
+
+
+    .el-client-label {
+
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .el-client-heading h2 {
+
+        font-size: 27px;
+
+        line-height: 1.3;
+    }
+
+
+    .el-client-heading p {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .el-client-track {
+
+        gap: 15px;
+
+        animation-duration:
+            25s;
+    }
+
+
+    .el-client-logo {
+
+        flex-basis: 145px;
+
+        width: 145px;
+
+        height: 85px;
+
+        padding: 15px;
+
+        border-radius: 12px;
+    }
+
+
+    .el-client-logo img {
+
+        max-width: 110px;
+
+        max-height: 52px;
+    }
+
+}
+
+/* =========================================================
+   PREMIUM CLIENT TESTIMONIAL SECTION
+========================================================= */
+
+.client-testimonial-section{
+
+    position:relative;
+
+    width:100%;
+
+    padding:100px 0 105px;
+
+    background:
+        radial-gradient(
+            circle at 5% 15%,
+            rgba(91,72,180,.10),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 95% 85%,
+            rgba(0,166,164,.10),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f7f8fc 0%,
+            #ffffff 50%,
+            #f1f8f8 100%
+        );
+
+    overflow:hidden;
+
+    user-select:none;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.client-testimonial-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(91,72,180,.07);
+
+    top:-230px;
+    left:-170px;
+
+    pointer-events:none;
+}
+
+
+.client-testimonial-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,166,164,.08);
+
+    bottom:-190px;
+    right:-130px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.testimonial-container{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.testimonial-heading{
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+}
+
+
+.testimonial-label{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    color:#20AEB0;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+
+.testimonial-heading h2{
+
+    margin:0;
+
+    color:#172d4b;
+
+    font-size:45px;
+
+    line-height:1.15;
+
+    font-weight:700;
+}
+
+
+.testimonial-heading h2 strong{
+
+    display:inline-block;
+
+    color:#009FC7;
+
+    font-weight:800;
+}
+
+
+.testimonial-heading p{
+
+    max-width:700px;
+
+    margin:18px auto 0;
+
+    color:#748397;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.testimonial-carousel{
+
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+}
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+.testimonial-viewport{
+
+    width:100%;
+
+    overflow:hidden;
+
+    padding:12px 6px 30px;
+
+    cursor:grab;
+
+    touch-action:pan-y;
+
+    -webkit-user-select:none;
+
+    user-select:none;
+}
+
+
+.testimonial-viewport.dragging{
+
+    cursor:grabbing;
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.testimonial-track{
+
+    display:flex;
+
+    gap:24px;
+
+    width:max-content;
+
+    will-change:transform;
+
+    transition:
+        transform .65s
+        cubic-bezier(.22,.61,.36,1);
+}
+
+
+/* Disable animation while dragging */
+
+.testimonial-track.dragging{
+
+    transition:none !important;
+}
+
+
+/* =========================================================
+   TESTIMONIAL CARD
+========================================================= */
+
+.client-testimonial-card{
+
+    position:relative;
+
+    flex:0 0 calc(
+        (90vw - 10vw - 48px) / 3
+    );
+
+    max-width:450px;
+
+    min-height:330px;
+
+    padding:30px;
+
+    background:#ffffff;
+
+    border:1px solid #e1e4ee;
+
+    border-radius:24px;
+
+
+    overflow:hidden;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+
+/* =========================================================
+   TOP ACCENT
+========================================================= */
+
+.client-testimonial-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6252b3,
+            #08aaa4,
+            #e8a93b
+        );
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.client-testimonial-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#c9cde0;
+
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.testimonial-card-head{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   CLIENT PROFILE
+========================================================= */
+
+.testimonial-client{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.client-avatar{
+
+    width:56px;
+    height:56px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5746a5,
+            #08aaa4
+        );
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 9px 23px rgba(76,68,160,.22);
+}
+
+
+/* =========================================================
+   CLIENT DETAILS
+========================================================= */
+
+.client-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+}
+
+
+.client-details h3{
+
+    margin:0;
+
+    color:#172f4e;
+
+    font-size:16px;
+
+    line-height:1.3;
+
+    font-weight:750;
+}
+
+
+.client-details span{
+
+    color:#8995a5;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   QUOTE ICON
+========================================================= */
+
+.testimonial-quote{
+
+    width:43px;
+    height:43px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#f1effb;
+
+    color:#6252b3;
+
+    font-size:15px;
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease;
+}
+
+
+.client-testimonial-card:hover
+.testimonial-quote{
+
+    background:#6252b3;
+
+    color:#ffffff;
+
+    transform:rotate(-8deg);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.testimonial-description{
+
+    margin:0;
+
+    color:#62758a;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    max-width:96%;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.testimonial-bottom{
+
+    position:absolute;
+
+    left:30px;
+    right:30px;
+
+    bottom:22px;
+
+    padding-top:17px;
+
+    border-top:1px solid #edf0f4;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.testimonial-stars{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    color:#e9aa35;
+
+    font-size:13px;
+}
+
+
+.testimonial-stars i{
+
+    transition:
+        transform .25s ease;
+}
+
+
+.client-testimonial-card:hover
+.testimonial-stars i{
+
+    transform:translateY(-2px);
+}
+
+
+.client-testimonial-card:hover
+.testimonial-stars i:nth-child(2){
+
+    transition-delay:.03s;
+}
+
+
+.client-testimonial-card:hover
+.testimonial-stars i:nth-child(3){
+
+    transition-delay:.06s;
+}
+
+
+.client-testimonial-card:hover
+.testimonial-stars i:nth-child(4){
+
+    transition-delay:.09s;
+}
+
+
+.client-testimonial-card:hover
+.testimonial-stars i:nth-child(5){
+
+    transition-delay:.12s;
+}
+
+
+/* =========================================================
+   NAVIGATION ARROWS
+========================================================= */
+
+.testimonial-nav{
+
+    width:52px;
+    height:52px;
+
+    flex-shrink:0;
+
+    display:grid;
+
+    place-items:center;
+
+    border:1px solid #dfe3ed;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    color:#5746a5;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    box-shadow:
+        0 10px 25px rgba(40,43,82,.08);
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.testimonial-nav:hover{
+
+    background:#5746a5;
+
+    color:#ffffff;
+
+    border-color:#5746a5;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(87,70,165,.25);
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.testimonial-dots{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:5px;
+}
+
+
+.testimonial-dots button{
+
+    width:7px;
+    height:7px;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:20px;
+
+    background:#d0d5e1;
+
+    cursor:pointer;
+
+    transition:
+        width .35s ease,
+        background .35s ease;
+}
+
+
+.testimonial-dots button.active{
+
+    width:30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6252b3,
+            #08aaa4
+        );
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .client-testimonial-card{
+
+        flex-basis:
+            calc(
+                (100vw - 10vw - 24px) / 2
+            );
+
+        max-width:none;
+    }
+
+
+    .testimonial-heading h2{
+
+        font-size:39px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+    .client-testimonial-section{
+
+        padding:80px 0 90px;
+    }
+
+
+    .testimonial-carousel{
+
+        gap:14px;
+    }
+
+
+    .testimonial-nav{
+
+        width:45px;
+        height:45px;
+    }
+
+
+    .testimonial-heading{
+
+        margin-bottom:45px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+    .client-testimonial-section{
+
+        padding:70px 0 80px;
+    }
+
+
+    .testimonial-container{
+
+        width:90%;
+    }
+
+
+    .testimonial-heading{
+
+        margin-bottom:35px;
+    }
+
+
+    .testimonial-label{
+
+        font-size:10px;
+
+        letter-spacing:2px;
+    }
+
+
+    .testimonial-heading h2{
+
+        font-size:30px;
+    }
+
+
+    .testimonial-heading p{
+
+        font-size:13px;
+
+        line-height:1.7;
+    }
+
+
+    .testimonial-carousel{
+
+        display:block;
+    }
+
+
+    .testimonial-viewport{
+
+        padding:8px 0 25px;
+    }
+
+
+    .testimonial-track{
+
+        gap:18px;
+    }
+
+
+    .client-testimonial-card{
+
+        flex-basis:90vw;
+
+        min-width:90vw;
+
+        min-height:315px;
+
+        padding:25px 23px;
+    }
+
+
+    .testimonial-bottom{
+
+        left:23px;
+        right:23px;
+    }
+
+
+    .testimonial-nav{
+
+        position:absolute;
+
+        top:50%;
+
+        transform:translateY(-50%);
+
+        width:40px;
+        height:40px;
+
+        z-index:10;
+    }
+
+
+    .testimonial-nav:hover{
+
+        transform:translateY(-50%);
+    }
+
+
+    .testimonial-prev{
+
+        left:-12px;
+    }
+
+
+    .testimonial-next{
+
+        right:-12px;
+    }
+
+}
+
+
+/* =====================================================
+   WHY CHOOSE US
+===================================================== */
+
+.why-section{
+    position:relative;
+    padding:70px 100px;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 10% 20%,#dff7ff 0,transparent 25%),
+        radial-gradient(circle at 90% 80%,#e8f3ff 0,transparent 28%),
+        #f8fbfd;
+}
+
+
+/* HEADING */
+
+.why-heading{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto 50px;
+    text-align:center;
+}
+
+.why-heading>span{
+    color:#009dc5;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2.5px;
+}
+
+.why-heading h2{
+    margin:13px 0;
+    color:#092f54;
+    font-size:45px;
+    line-height:1.15;
+}
+
+.why-heading h2 strong{
+    color:#009fc7;
+}
+
+.why-heading p{
+    margin:0;
+    color:#728697;
+    font-size:14px;
+    line-height:1.8;
+}
+
+
+/* GRID */
+
+.why-grid{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+
+/* CARD */
+
+.why-card{
+    position:relative;
+    min-height:265px;
+    padding:28px;
+
+    background:rgba(255,255,255,.88);
+
+    border:1px solid #dceaf1;
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 35px rgba(0,55,95,.06);
+
+    overflow:hidden;
+
+    opacity:0;
+    transform:translateY(35px);
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+}
+
+
+/* SHOW ANIMATION */
+
+.why-card.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* TOP */
+
+.why-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.why-top>b{
+    color:#b6c6d0;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+
+/* ICON */
+
+.why-icon{
+    width:57px;
+    height:57px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:16px;
+
+    color:#fff;
+    font-size:20px;
+
+    transition:.4s;
+
+    box-shadow:
+        0 9px 22px rgba(0,80,130,.16);
+}
+
+
+/* COLORS */
+
+.blue .why-icon{
+    background:linear-gradient(135deg,#075bb8,#168ce9);
+}
+
+.cyan .why-icon{
+    background:linear-gradient(135deg,#008f9a,#12c9c3);
+}
+
+.purple .why-icon{
+    background:linear-gradient(135deg,#6250c7,#9078e8);
+}
+
+.orange .why-icon{
+    background:linear-gradient(135deg,#e37b24,#f5a23b);
+}
+
+.green .why-icon{
+    background:linear-gradient(135deg,#168b68,#35bd8d);
+}
+
+.red .why-icon{
+    background:linear-gradient(135deg,#c94c68,#e87a8d);
+}
+
+
+/* HOVER */
+
+.why-card:hover{
+    transform:translateY(-10px);
+    border-color:#8bd9e8;
+
+    box-shadow:
+        0 24px 50px rgba(0,65,105,.13);
+}
+
+.why-card:hover .why-icon{
+    transform:scale(1.08) rotate(-6deg);
+}
+
+
+/* CARD CONTENT */
+
+.why-card h3{
+    margin:22px 0 9px;
+
+    color:#123d61;
+    font-size:20px;
+    font-weight:750;
+}
+
+.why-card p{
+    margin:0;
+
+    color:#718496;
+    font-size:13px;
+    line-height:1.75;
+}
+
+
+/* BOTTOM */
+
+.why-bottom{
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:22px;
+
+    padding-top:14px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-top:1px solid #e7eff3;
+
+    color:#7890a0;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+}
+
+.why-bottom i{
+    color:#08abc9;
+    transition:.3s;
+}
+
+.why-card:hover .why-bottom i{
+    transform:translateX(6px);
+}
+
+
+/* TOP GLOW */
+
+.why-card:before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-100px;
+    top:-100px;
+
+    border-radius:50%;
+
+    background:#08c9df12;
+
+    transition:.5s;
+}
+
+.why-card:hover:before{
+    transform:scale(1.7);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-heading h2{
+        font-size:38px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .why-section{
+        padding:70px 0;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+        width:88%;
+    }
+
+    .why-heading{
+        width:88%;
+        margin-bottom:40px;
+    }
+
+    .why-heading h2{
+        font-size:31px;
+    }
+
+    .why-card{
+        min-height:250px;
+        padding:25px;
+    }
+}
+
+
+/* =========================================================
+   EXPERT LINK
+   PREMIUM OFFICE PHOTO GALLERY
+========================================================= */
+
+.el-office-gallery {
+    position: relative;
+    width: 100%;
+    padding: 70px 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff 0%,
+            #eef8ff 48%,
+            #f9fcff 100%
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.el-office-gallery::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    left: -220px;
+    top: 40px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(39, 139, 235, 0.12);
+
+    box-shadow:
+        0 0 0 35px rgba(39, 139, 235, 0.025),
+        0 0 0 70px rgba(39, 139, 235, 0.02);
+
+    pointer-events: none;
+}
+
+
+.el-office-gallery::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -130px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(55, 153, 244, 0.14),
+            rgba(55, 153, 244, 0.03) 55%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.el-office-gallery-container {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-office-gallery-heading {
+    max-width: 850px;
+
+    margin: 0 auto 52px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.el-office-gallery-label {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 17px;
+
+    margin-bottom: 15px;
+
+    color: #0878d1;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.el-office-gallery-label span {
+    display: block;
+
+    width: 42px;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0878d1,
+            #35c5d2
+        );
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.el-office-gallery-heading h2 {
+    margin: 0;
+
+    color: #142b49;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 40px;
+
+    line-height: 1.18;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+.el-office-gallery-heading h2 strong {
+    color: #147ddd;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.el-office-gallery-heading p {
+    max-width: 650px;
+
+    margin: 17px auto 0;
+
+    color: #687c91;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PHOTO GRID
+========================================================= */
+
+.el-office-gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    grid-template-rows:
+        215px
+        215px
+        215px;
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   PHOTO CARD
+========================================================= */
+
+.el-office-photo {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #e8f0f5;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px
+        rgba(30, 75, 105, 0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   LARGE FIRST IMAGE
+========================================================= */
+
+.el-office-photo-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.el-office-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.el-office-photo:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 22px 45px
+        rgba(30, 75, 105, 0.17);
+}
+
+
+.el-office-photo:hover img {
+    transform: scale(1.07);
+}
+
+
+/* =========================================================
+   IMAGE SHINE
+========================================================= */
+
+.el-office-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            125deg,
+            rgba(255,255,255,0.10),
+            transparent 30%,
+            transparent 70%,
+            rgba(255,255,255,0.07)
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease;
+}
+
+
+.el-office-photo:hover::after {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .el-office-gallery {
+        padding: 80px 0 90px;
+    }
+
+
+    .el-office-gallery-heading {
+        margin-bottom: 42px;
+    }
+
+
+    .el-office-gallery-heading h2 {
+        font-size: 35px;
+    }
+
+
+    .el-office-gallery-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        grid-template-rows:
+            230px
+            230px
+            230px
+            230px
+            230px;
+    }
+
+
+    .el-office-photo-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .el-office-gallery {
+        padding: 65px 0 75px;
+    }
+
+
+    .el-office-gallery-container {
+        width: 91%;
+    }
+
+
+    .el-office-gallery-heading {
+        margin-bottom: 32px;
+    }
+
+
+    .el-office-gallery-label {
+        gap: 10px;
+
+        font-size: 11px;
+
+        letter-spacing: 1.4px;
+    }
+
+
+    .el-office-gallery-label span {
+        width: 24px;
+    }
+
+
+    .el-office-gallery-heading h2 {
+        font-size: 28px;
+
+        line-height: 1.25;
+
+        letter-spacing: -0.5px;
+    }
+
+
+    .el-office-gallery-heading p {
+        margin-top: 13px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* MOBILE GALLERY */
+
+    .el-office-gallery-grid {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            repeat(9, 235px);
+
+        gap: 14px;
+    }
+
+
+    .el-office-photo-large {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+
+    .el-office-photo {
+        border-radius: 14px;
+    }
+
+
+    .el-office-photo:hover {
+        transform: none;
+
+        box-shadow:
+            0 12px 28px
+            rgba(30, 75, 105, 0.11);
+    }
+
+
+    .el-office-photo:hover img {
+        transform: scale(1.03);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .el-office-gallery-heading h2 {
+        font-size: 25px;
+    }
+
+
+    .el-office-gallery-grid {
+        grid-template-rows:
+            repeat(9, 215px);
+
+        gap: 12px;
+    }
+
+}
+
+
+
+
+
